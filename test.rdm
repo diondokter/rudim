@@ -1,0 +1,78 @@
+# The start routine. Will always be called first
+start:
+    print "This is printed."
+
+    # Type inference say that x is a num
+    x = 50
+
+    # Easily cast to other types
+    y = 50 as txt
+
+    # Error: Can't assign a txt to a num
+    x = y
+
+    # Allowed: y is first converted to a num. A runtime error follows if the conversion is not possible.
+    x = y as num
+
+    # There are also bools
+    b = x == y
+    b = true
+    b = false
+
+    # Flow control with if statements
+    if x == y as num:
+        print "x equals y"
+    else if x > y as num:
+        print "x is bigger than y"
+    else:
+        print "y is bigger than x"
+    ;
+
+    # We can also format strings
+    s = "The value of x is {x}"
+
+    # There are also collections. All elements must have the same type.
+    c = [0, 1, 2, 3, 4, 5, 6]
+
+    # Get the length of a collection
+    l = length c
+
+    # Get an element from a collection. Negative indices will get from the end of the collection
+    x = l[3]
+    x = l[-3]
+
+    # Collections can be created with helper routines
+    c = range 0, 10
+    
+    # Flow control with for loops
+    # Note that this iterates through a collection
+    for i in c:
+        print "{i}"
+    ;
+
+    # Flow control with while loops
+    while x < 40:
+        print "{x}"
+        x -= 1
+    ;
+
+    # Collection routines
+    # Add element to the end of the collection
+    append c, 25
+    # Add element at index 3
+    insert c, 25, 3
+    # Remove the last element 
+    remove c, -1
+
+# End the start routine
+;
+
+# Create a custom routine called foo with the parameters x, y and z that returns a bool and a num
+foo
+    with x as num, y as txt, z as bool
+    returns bool, num:
+
+    return true, x
+;
+
+
